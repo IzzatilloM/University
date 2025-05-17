@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Universitet | Ustozlar</title>
+</head>
+<body>
+<a href="/">Bosh sahifa</a>
+        <h1>Ustozlar ro'yxati</h1>
+        <hr>
+<form method="post">
+    {% csrf_token %}
+    <label></label>
+</form>
+
+        <hr>
+        {% for ustoz in ustozlar %}
+        <p>{{ forloop.counter }}.{{ ustoz.ism }}</p>
+        {% endfor %}
+</body>
+</html>

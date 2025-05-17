@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Universitet | Fanlar</title>
+</head>
+<body>
+<a href="/">Bosh sahifa</a>
+        <h1>Fanlar ro'yxati</h1>
+        <hr>
+<form method="post">
+    {% csrf_token %}
+    <label>Nom:</label>
+    <input type="text" name="nom" id="nom" required>
+    <br><br>
+    <label>Asosiy:</label>
+    <input type="checkbox" name="asosiy">
+    <br><br>
+    <label>Yunalish:</label>
+    <select name="yunalish_id">
+        {% for yunalish in yunalishlar %}
+        <option value="{{ yunalish.id }}">{{ yunalish.nom }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button>Qo'shish</button>
+</form>
+
+
+        <hr>
+        {% for fan in fanlar %}
+        <p>{{ forloop.counter }}.
+            <a href="/fanlar/{{ fan.id }}">
+                {{ fan.nom }}
+            </a>
+            <a href="/fanlar/{{ fan.id }}/delete/">
+                <button>O'chirish</button>
+            </a>
+        </p>
+        {% endfor %}
+</body>
+</html>

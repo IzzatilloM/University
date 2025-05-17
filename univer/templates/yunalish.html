@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Universitet | Yunalish</title>
+</head>
+<body>
+<a href="/">Bosh sahifa</a>
+        <h1>Yunalishlar</h1>
+        <hr>
+            {% csrf_token %}
+            <label>Nom:</label>
+            <input type="text" name="nom" id="nom" required>
+            <br><br>
+            <label>Aktiv:</label>
+            <input type="checkbox" nom="aktiv">
+            <br><br>
+            <button>Qo'shish</button>
+        <hr>
+        {% for yunalish in yunalish %}
+        <p>{{ forloop.counter }}.{{ yunalish.nom }}</p>
+         <a href="/yunalish/{{ yunalish.id }}/confirm-delete/">
+             <button>O'chirish</button>
+         </a>
+        {% endfor %}
+</body>
+</html>
